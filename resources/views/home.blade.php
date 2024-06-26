@@ -33,12 +33,12 @@
                     </div>
                 </div>
             </div>
-            {{-- <div class="next-1">
+            <div class="next-1">
                 <img src="/images/next-1.png" alt="next1">
             </div>
             <div class="next-2">
                 <img src="/images/next-2.png" alt="next2">
-            </div> --}}
+            </div>
         </div>
         <div class="informasi d-flex gap-1 justify-content-center align-items-center mb-3">
             <p class="p-0 m-0">

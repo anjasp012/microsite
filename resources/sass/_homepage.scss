@@ -4,6 +4,7 @@
 
 .steps{
     position: relative;
+    overflow-x: hidden;
     .card{
         border: 2pt solid $primary;
         position: relative;
