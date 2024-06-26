@@ -6,7 +6,6 @@
     position: relative;
     .card{
         border: 2pt solid $primary;
-        height: 130px;
         position: relative;
         .card-body{
             color: $primary;
@@ -25,7 +24,7 @@
     .next-1{
         position: absolute;
         bottom: -8%;
-        left: 80px;
+        left: 96px;
         img{
             width: 15%;
         }
@@ -33,7 +32,7 @@
     .next-2{
         position: absolute;
         top: -8%;
-        left: 194px;
+        left: 230px;
         img{
             width: 15%;
         }
