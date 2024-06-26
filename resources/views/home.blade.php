@@ -7,31 +7,35 @@
 @section('content')
     <img src="/images/KV1.png" class="w-100 mb-3" alt="KV1">
     <div class="container">
-        <div class="row g-1 steps mb-4">
-            <div class="col-4 d-flex">
-                <div class="card rounded-3">
-                    <div class="card-body py-2">
-                        Upload foto stiker kamu di IG feed dengan hashtag <strong>#KolektorPentolan</strong>, dan tag 2
-                        temen kamu, terus follow IG <strong>@SmaxIndonesia</strong>
+        <div class="steps mb-4">
+            <div class="row g-1">
+                <div class="col-4 d-flex">
+                    <div class="card rounded-3">
+                        <div class="card-body py-2">
+                            Upload foto stiker kamu di IG feed dengan hashtag <strong>#KolektorPentolan</strong>, dan tag 2
+                            temen kamu, terus follow IG <strong>@SmaxIndonesia</strong>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-4 d-flex">
-                <div class="card rounded-3">
-                    <div class="card-body py-2">
-                        Register di website <strong>kolektorpentolan.com</strong> dan upload link postingan IG kamu untuk
-                        konfirmasi
-                        keikutsertaan kamu
+                <div class="col-4 d-flex">
+                    <div class="card rounded-3">
+                        <div class="card-body py-2">
+                            Register di website <strong>kolektorpentolan.com</strong> dan upload link postingan IG kamu
+                            untuk
+                            konfirmasi
+                            keikutsertaan kamu
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-4 d-flex">
-                <div class="card rounded-3">
-                    <div class="card-body py-2">
-                        Tunggu pengumumannya di akhir minggu dan akhir bulan, semoga beruntung!
+                <div class="col-4 d-flex">
+                    <div class="card rounded-3">
+                        <div class="card-body py-2">
+                            Tunggu pengumumannya di akhir minggu dan akhir bulan, semoga beruntung!
 
+                        </div>
                     </div>
                 </div>
+
             </div>
             <div class="next-1">
                 <img src="/images/next-1.png" alt="next1">
