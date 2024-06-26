@@ -7,7 +7,7 @@
 @section('content')
     <img src="/images/KV1.png" class="w-100 mb-3" alt="KV1">
     <div class="container">
-        <div class="row g-1 steps pb-3">
+        <div class="row g-1 steps mb-4">
             <div class="col-4 d-flex">
                 <div class="card rounded-3">
                     <div class="card-body py-2">
