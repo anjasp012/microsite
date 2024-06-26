@@ -24,7 +24,7 @@
 
 <body>
     <div id="app">
-        {{-- <nav class="navbar navbar-expand-md navbar-light bg-primary shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-primary shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ route('home') }}">
                     <img src="/images/home.png" width="30px" height="30px" alt="">
@@ -69,7 +69,7 @@
                     @endauth
                 </ul>
             </div>
-        </nav> --}}
+        </nav>
 
         <main>
             @yield('content')
