@@ -7,7 +7,7 @@
 @section('content')
     {{-- <img src="/images/KV1.png" class="w-100 mb-3" alt="KV1"> --}}
     <div class="container">
-        <div class="row g-1 steps mb-3">
+        {{-- <div class="row g-1 steps mb-3">
             <div class="col-4 d-flex">
                 <div class="card rounded-3">
                     <div class="card-body py-2">
@@ -39,7 +39,7 @@
             <div class="next-2">
                 <img src="/images/next-2.png" alt="next2">
             </div>
-        </div>
+        </div> --}}
         <div class="informasi d-flex gap-1 justify-content-center align-items-center mb-3">
             <p class="p-0 m-0">
                 Untuk info lebih lengkap, <strong>klik tombol ini!</strong>
@@ -49,8 +49,7 @@
         <div class="action-upload mb-3">
             @auth
                 @if (auth()->user()->role != 'admin')
-                    <a type="button" data-bs-toggle="modal" class="bg-transparent p-0 m-0 w-auto"
-                        data-bs-target="#uploadModal">
+                    <a type="button" data-bs-toggle="modal" class="bg-transparent p-0 m-0 w-auto" data-bs-target="#uploadModal">
                         <img src="/images/upload.png" width="80%" alt="upload">
                     </a>
                 @endif
@@ -145,10 +144,10 @@
             </div>
         </div>
         <div class="row justify-content-center align-items-center">
-            <div class="col-5"> <a href="" class="text-end"><img src="/images/button-ecommerce.png"
-                        class="w-100" alt="ecommerce"></a></div>
-            <div class="col-5"> <a href=""><img src="/images/button-tiktok.png" class="w-100"
-                        alt="tiktok"></a></div>
+            <div class="col-5"> <a href="" class="text-end"><img src="/images/button-ecommerce.png" class="w-100"
+                        alt="ecommerce"></a></div>
+            <div class="col-5"> <a href=""><img src="/images/button-tiktok.png" class="w-100" alt="tiktok"></a>
+            </div>
         </div>
     </div>
     <footer class="mt-3 bg-success">
