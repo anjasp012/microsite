@@ -68,7 +68,7 @@
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content bg-transparent border-0">
                         <div class="row justify-content-center">
-                            <div class="col-8">
+                            <div class="col-9">
                                 <div class="upload position-relative">
                                     <div class="bg-primary position-absolute rounded-3 top-0 start-0 bottom-0 end-0 rotate-2"
                                         style="transform: rotate(1.5deg)"></div>
