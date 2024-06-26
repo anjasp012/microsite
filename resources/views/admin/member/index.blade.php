@@ -9,33 +9,53 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <!-- Button trigger modal -->
-                <div class="card">
-                    <div class="card-header">{{ __('Daftar Member') }}</div>
+                <div class="card border-0 shadow-sm mb-4">
                     <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th class="text-center">Rk</th>
-                                        <th>Nama</th>
-                                        <th>Username</th>
-                                        <th>email</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($members as $no => $member)
-                                        <tr>
-                                            <th class="text-center">{{ $no + 1 }}</th>
-                                            <th>{{ $member->name }}</th>
-                                            <th>{{ $member->username }}</th>
-                                            <th>{{ $member->email }}</th>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
+                        <div class="d-flex justify-content-between">
+                            <h3>Member</h3>
+                            <form class="form-inline my-2 my-lg-0">
+                                <input class="form-control mr-sm-2" type="search" placeholder="Cari Member"
+                                    aria-label="Search" name="q" value="{{ request()->q }}">
+                                <button class="btn btn-primary my-2 my-sm-0" type="submit">Cari</button>
+                            </form>
                         </div>
                     </div>
                 </div>
+                <div class="row">
+                    @forelse ($members as $no => $member)
+                        <div class="col-md-3 col-4 mb-4 d-flex">
+                            <div class="card w-100 border-0 shadow-sm">
+                                <div class="card-body text-center py-5">
+                                    <img width="90" class="mb-3  border rounded" src="{{ $member->avatar }}"
+                                        alt="{{ $member->name }}">
+                                    <h5 class="font-weight-bold text-dark mb-1">
+                                        {{ Str::limit($member->username, 5) }}
+                                    </h5>
+                                    <p>
+                                        {{ $member->name }}
+                                    </p>
+                                    <a href="" class="btn btn-primary px-lg-4">Detail</a>
+                                </div>
+                            </div>
+                        </div>
+                    @empty
+                        <div class="col-12">
+                            <div class="card bg-white border-0 shadow-sm">
+                                <div class="card-body py-5">
+                                    <p class="text-danger text-center p-0 m-0">User tidak ada</p>
+                                </div>
+                            </div>
+                        </div>
+                    @endforelse
+                </div>
+
+                @if ($members->total() > 8)
+                    <div class="card">
+                        <div class="card-body pt-3 pb-0">
+                            {{ $members->links('pagination::bootstrap-5') }}
+                        </div>
+                    </div>
+                @endif
             </div>
         </div>
     </div>

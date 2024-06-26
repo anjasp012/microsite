@@ -13,7 +13,13 @@ class MemberController extends Controller
      */
     public function index()
     {
-        $members = User::whereRole('member')->get();
+        if (request()->q) {
+            $members = User::where('role', 'member')
+                ->where('name', 'LIKE', '%' . request()->q . '%')
+                ->paginate(8);
+        } else {
+            $members = User::whereRole('member')->paginate(8);
+        }
         $data = [
             'members' => $members
         ];
