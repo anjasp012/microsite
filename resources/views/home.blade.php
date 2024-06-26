@@ -56,9 +56,18 @@
             <a href="{{ route('informasi') }}" class="btn btn-sm btn-info btn-informasi shadow-sm">Informasi</a>
         </div>
         <div class="action-upload mb-3">
-            <a type="button" data-bs-toggle="modal" class="bg-transparent p-0 m-0 w-auto" data-bs-target="#uploadModal">
-                <img src="/images/upload.png" width="80%" alt="upload">
-            </a>
+            @auth
+                @if (auth()->user()->role != 'admin')
+                    <a type="button" data-bs-toggle="modal" class="bg-transparent p-0 m-0 w-auto"
+                        data-bs-target="#uploadModal">
+                        <img src="/images/upload.png" width="80%" alt="upload">
+                    </a>
+                @endif
+            @else
+                <a href="{{ route('login') }}" class="bg-transparent p-0 m-0 w-auto">
+                    <img src="/images/upload.png" width="80%" alt="upload">
+                </a>
+            @endauth
             <div class="modal fade" id="uploadModal" tabindex="-1" aria-labelledby="uploadModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content bg-transparent border-0">
@@ -74,11 +83,12 @@
                                         <div class="card-body">
                                             <img src="/images/smaxXquby.png" class="mb-2" style="margin-top: 48px"
                                                 width="80%" alt="smaxXquby">
-                                            <form action="">
+                                            <form action="{{ route('post') }}" method="POST">
+                                                @csrf
                                                 <input type="text" class="form-control form-control-sm bg-secondary mb-1"
-                                                    placeholder="Instagram ID">
+                                                    placeholder="Instagram ID" name="instagram" required>
                                                 <input type="text" class="form-control form-control-sm bg-secondary mb-2"
-                                                    placeholder="Link Postingan">
+                                                    placeholder="Link Postingan" name="link" required>
                                                 <button
                                                     class="btn btn-primary border-warning w-100 border-2 rounded-3 mb-2">Upload</button>
                                                 <p class="starmoly">Starmoly.All rights reserved.</p>
@@ -100,7 +110,7 @@
                         style="transform: rotate(1.5deg)"></div>
                     <div class="card rounded-3 border-0">
                         <div class="card-body p-2">
-                            <input type="text" class="form-control form-control-sm border-0"
+                            <input id="leaderboardSearch" type="text" class="form-control form-control-sm border-0"
                                 style="background-color: #f7f7f7" placeholder="Cari posisi kamu di sini">
                             <div class="text-center">
                                 <img src="/images/leaderboard.png" class="w-75 mt-1 mb-2" alt="leaderboard">
@@ -115,56 +125,13 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <th class="bg-secondary text-center">1</th>
-                                            <th class="bg-secondary">@anjas</th>
-                                            <th class="bg-secondary text-center">100</th>
-                                        </tr>
-                                        <tr>
-                                            <th class="bg-secondary text-center">2</th>
-                                            <th class="bg-secondary">@anjas</th>
-                                            <th class="bg-secondary text-center">100</th>
-                                        </tr>
-                                        <tr>
-                                            <th class="bg-secondary text-center">3</th>
-                                            <th class="bg-secondary">@anjas</th>
-                                            <th class="bg-secondary text-center">100</th>
-                                        </tr>
-                                        <tr>
-                                            <th class="bg-secondary text-center">4</th>
-                                            <th class="bg-secondary">@anjas</th>
-                                            <th class="bg-secondary text-center">100</th>
-                                        </tr>
-                                        <tr>
-                                            <th class="bg-secondary text-center">5</th>
-                                            <th class="bg-secondary">@anjas</th>
-                                            <th class="bg-secondary text-center">100</th>
-                                        </tr>
-                                        <tr>
-                                            <th class="bg-secondary text-center">6</th>
-                                            <th class="bg-secondary">@anjas</th>
-                                            <th class="bg-secondary text-center">100</th>
-                                        </tr>
-                                        <tr>
-                                            <th class="bg-secondary text-center">7</th>
-                                            <th class="bg-secondary">@anjas</th>
-                                            <th class="bg-secondary text-center">100</th>
-                                        </tr>
-                                        <tr>
-                                            <th class="bg-secondary text-center">8</th>
-                                            <th class="bg-secondary">@anjas</th>
-                                            <th class="bg-secondary text-center">100</th>
-                                        </tr>
-                                        <tr>
-                                            <th class="bg-secondary text-center">9</th>
-                                            <th class="bg-secondary">@anjas</th>
-                                            <th class="bg-secondary text-center">100</th>
-                                        </tr>
-                                        <tr>
-                                            <th class="bg-secondary text-center">10</th>
-                                            <th class="bg-secondary">@anjas</th>
-                                            <th class="bg-secondary text-center">100</th>
-                                        </tr>
+                                        @foreach ($members as $no => $member)
+                                            <tr>
+                                                <th class="bg-secondary text-center">{{ $no + 1 }}</th>
+                                                <th class="bg-secondary">{{ '@' . $member->username }}</th>
+                                                <th class="bg-secondary text-center">{{ $member->point }}</th>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
@@ -173,10 +140,11 @@
                 </div>
             </div>
         </div>
-        <div class="d-flex justify-center gap-4">
-            <a href="" class="text-end"><img src="/images/button-ecommerce.png" width="80%"
-                    alt="ecommerce"></a>
-            <a href=""><img src="/images/button-tiktok.png" width="80%" alt="tiktok"></a>
+        <div class="row justify-content-center align-items-center">
+            <div class="col-5"> <a href="" class="text-end"><img src="/images/button-ecommerce.png"
+                        class="w-100" alt="ecommerce"></a></div>
+            <div class="col-5"> <a href=""><img src="/images/button-tiktok.png" class="w-100"
+                        alt="tiktok"></a></div>
         </div>
     </div>
     <footer class="mt-3 bg-success">
@@ -196,9 +164,14 @@
 
     <script>
         $(document).ready(function() {
-            $('table').DataTable({
-                dom: 't'
-            });
+            oTable = $('table')
+                .DataTable({
+                    dom: 't',
+                    paging: false
+                });
+            $('#leaderboardSearch').keyup(function() {
+                oTable.search($(this).val()).draw();
+            })
         });
     </script>
 @endpush
