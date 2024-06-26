@@ -4,10 +4,8 @@
 
 .steps{
     position: relative;
-    overflow-x: hidden;
     .card{
         border: 2pt solid $primary;
-        position: relative;
         .card-body{
             color: $primary;
             font-size: 9px;
@@ -16,26 +14,21 @@
             padding-left: 5px;
             padding-right: 5px;
         }
-        .emott{
-            text-align: center !important;
-            position: absolute;
-            bottom: 0;
-        }
     }
     .next-1{
         position: absolute;
         bottom: -8%;
-        left: 96px;
+        left: 100px;
         img{
-            width: 15%;
+            width: 30%;
         }
     }
     .next-2{
         position: absolute;
         top: -8%;
-        left: 230px;
+        left: 234px;
         img{
-            width: 15%;
+            width: 30%;
         }
     }
 }

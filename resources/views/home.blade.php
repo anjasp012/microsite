@@ -7,12 +7,13 @@
 @section('content')
     <img src="/images/KV1.png" class="w-100 mb-3" alt="KV1">
     <div class="container">
-        <div class="steps mb-4">
+        <div class="steps mb-3">
             <div class="row g-1">
                 <div class="col-4 d-flex">
                     <div class="card rounded-3">
                         <div class="card-body py-2">
-                            Upload foto stiker kamu di IG feed dengan hashtag <strong>#KolektorPentolan</strong>, dan tag 2
+                            Upload foto stiker kamu di IG feed dengan hashtag <strong>#KolektorPentolan</strong>, dan
+                            tag 2
                             temen kamu, terus follow IG <strong>@SmaxIndonesia</strong>
                         </div>
                     </div>
