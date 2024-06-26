@@ -5,7 +5,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.0.8/css/dataTables.bootstrap5.css">
 @endpush
 @section('content')
-    <img src="/images/KV1.png" class="w-100 mb-3" alt="KV1">
+    {{-- <img src="/images/KV1.png" class="w-100 mb-3" alt="KV1"> --}}
     <div class="container">
         <div class="row g-1 steps mb-3">
             <div class="col-4 d-flex">
