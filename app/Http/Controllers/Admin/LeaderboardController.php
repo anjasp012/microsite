@@ -16,4 +16,15 @@ class LeaderboardController extends Controller
         ];
         return view('admin.leaderboard.index', $data);
     }
+
+    public function reset()
+    {
+        $member = User::whereRole('member')->get();
+        foreach ($member as $item) {
+            $item->update([
+                'poin' => 0
+            ]);
+        }
+        return back();
+    }
 }

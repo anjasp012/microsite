@@ -163,7 +163,6 @@
                                         <tr>
                                             <th class="bg-info text-light text-center">Rk</th>
                                             <th class="bg-info text-light text-center">Username</th>
-                                            <th class="bg-info text-light text-center">Periode</th>
                                             <th class="bg-info text-light text-center">Poin</th>
                                         </tr>
                                     </thead>
@@ -180,10 +179,6 @@
                                                             href="">{{ '@' . $member->username }}</a>
                                                     </th>
                                                     <th class="bg-warning text-center">
-                                                        <a class="w-100 text-decoration-none text-black" href="">8
-                                                            - 31 Juli</a>
-                                                    </th>
-                                                    <th class="bg-warning text-center">
                                                         <a class="w-100 text-decoration-none"
                                                             href="">{{ $member->point }}</a>
                                                     </th>
@@ -193,10 +188,6 @@
                                                     <th class="bg-secondary text-center">{{ $no + 1 }}</th>
                                                     <th class="bg-secondary">
                                                         {{ Str::limit('@' . $member->username, '5', '***') }}
-                                                    </th>
-                                                    <th class="bg-secondary text-center">
-                                                        <a class="w-100 text-decoration-none text-black"
-                                                            href="">{{ rand(8, 31) }} Juli</a>
                                                     </th>
                                                     <th class="bg-secondary text-center">{{ $member->point }}</th>
                                                 </tr>
