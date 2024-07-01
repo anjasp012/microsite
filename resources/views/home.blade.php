@@ -181,15 +181,7 @@
         </div>
         <div class="row justify-content-center mb-3">
             <div class="col-10">
-                <div class="card border-0 rounded-3 bg-success">
-                    <div class="card-body py-1 px-2">
-                        <h5 class="text-center fw-bold">Terus kumpulkan
-                            stikernya
-                            Dan update post koleksi
-                            kamu Supaya bisa
-                            menangkan hadiahnya!</h5>
-                    </div>
-                </div>
+                <img src="/images/terus.png" alt="terus-kumpulkan" class="w-100">
             </div>
         </div>
         <div class="row justify-content-center align-items-center">
