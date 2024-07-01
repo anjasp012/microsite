@@ -97,7 +97,7 @@
                 @if (auth()->user()->role != 'admin')
                     <a type="button" data-bs-toggle="modal" class="bg-transparent p-0 m-0 w-auto"
                         data-bs-target="#uploadModal">
-                        <img src="/images/upload.png" width="80%" alt="upload">
+                        <img src="/images/upload.png" width="80%" class="shadow-sm" alt="upload">
                     </a>
                 @endif
             @else
@@ -114,7 +114,7 @@
                                     <div class="bg-primary position-absolute rounded-3 top-0 start-0 bottom-0 end-0 rotate-2"
                                         style="transform: rotate(1.5deg)"></div>
                                     <div class="header-popup">
-                                        <img src="/images/popup1.png" width="94%" alt="popup1">
+                                        <img src="/images/ayo.png" width="94%" alt="popup1">
                                     </div>
                                     <div class="card rounded-3 border-0">
                                         <div class="card-body">
@@ -165,11 +165,28 @@
                                     </thead>
                                     <tbody>
                                         @foreach ($members as $no => $member)
-                                            <tr>
-                                                <th class="bg-secondary text-center">{{ $no + 1 }}</th>
-                                                <th class="bg-secondary">{{ '@' . $member->username }}</th>
-                                                <th class="bg-secondary text-center">{{ $member->point }}</th>
-                                            </tr>
+                                            @if ($member->id == auth()->id())
+                                                <tr>
+                                                    <th class="bg-warning text-center">
+                                                        <a class="w-100 text-decoration-none"
+                                                            href="">{{ $no + 1 }}</a>
+                                                    </th>
+                                                    <th class="bg-warning">
+                                                        <a class="w-100 text-decoration-none"
+                                                            href="">{{ '@' . $member->username }}</a>
+                                                    </th>
+                                                    <th class="bg-warning text-center">
+                                                        <a class="w-100 text-decoration-none"
+                                                            href="">{{ $member->point }}</a>
+                                                    </th>
+                                                </tr>
+                                            @else
+                                                <tr>
+                                                    <th class="bg-secondary text-center">{{ $no + 1 }}</th>
+                                                    <th class="bg-secondary">{{ '@' . $member->username }}</th>
+                                                    <th class="bg-secondary text-center">{{ $member->point }}</th>
+                                                </tr>
+                                            @endif
                                         @endforeach
                                     </tbody>
                                 </table>
@@ -181,14 +198,14 @@
         </div>
         <div class="row justify-content-center mb-3">
             <div class="col-10">
-                <img src="/images/terus.png" alt="terus-kumpulkan" class="w-100">
+                <img src="/images/terus.png" alt="terus-kumpulkan" class="w-100 rounded shadow-sm">
             </div>
         </div>
         <div class="row justify-content-center align-items-center">
-            <div class="col-5"> <a href="" class="text-end"><img src="/images/button-ecommerce.png"
-                        class="w-100" alt="ecommerce"></a></div>
-            <div class="col-5"> <a href=""><img src="/images/button-tiktok.png" class="w-100"
-                        alt="tiktok"></a></div>
+            <div class="col-5"> <a href="https://id.shp.ee/iS2FqYY" target="_blank" class="text-end"><img
+                        src="/images/button-ecommerce.png" class="w-100" alt="ecommerce"></a></div>
+            <div class="col-5"> <a href="https://www.tiktok.com/@smaxindonesia?_t=8nWGGcMqy8m&_r=1" target="_blank"><img
+                        src="/images/button-tiktok.png" class="w-100" alt="tiktok"></a></div>
         </div>
     </div>
     <footer class="mt-3 bg-success">
