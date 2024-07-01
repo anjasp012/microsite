@@ -5,26 +5,67 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.0.8/css/dataTables.bootstrap5.css">
 @endpush
 @section('content')
-    <img src="/images/KV1.png" class="w-100 mb-3" alt="KV1">
+    <div id="carouselExampleIndicators" class="carousel slide mb-3">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="/images/KV1.png" class="d-block w-100" alt="kv1">
+            </div>
+            <div class="carousel-item">
+                <img src="/images/KV1.png" class="d-block w-100" alt="kv1">
+            </div>
+            <div class="carousel-item">
+                <img src="/images/KV1.png" class="d-block w-100" alt="kv1">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
     <div class="container">
         <div class="steps mb-3">
             <div class="row g-1">
                 <div class="col-4 d-flex">
                     <div class="card rounded-3">
                         <div class="card-body py-2">
-                            Upload foto stiker kamu di IG feed dengan hashtag <strong>#KolektorPentolan</strong>, dan
-                            tag 2
-                            temen kamu, terus follow IG <strong>@SmaxIndonesia</strong>
+                            Upload foto stiker kamu
+                            Di IG Feed dengan Hashtag
+                            <strong>
+                                #KolektorPentolan (highlight)
+                            </strong>
+                            Dan tag 2 temen kamu lalu
+                            Follow IG
+                            <strong>
+                                @SmaxIndonesia
+                            </strong>
+
                         </div>
                     </div>
                 </div>
                 <div class="col-4 d-flex">
                     <div class="card rounded-3">
                         <div class="card-body py-2">
-                            Register di website <strong>kolektorpentolan.com</strong> dan upload link postingan IG kamu
-                            untuk
-                            konfirmasi
-                            keikutsertaan kamu
+                            Register di website
+                            <strong>
+                                SmaxKolektorPentolan.com
+                            </strong>
+                            dan upload link postingan IGmu
+                            Untuk konfirmasi keikutsertaan
+
                         </div>
                     </div>
                 </div>
@@ -81,9 +122,11 @@
                                                 width="80%" alt="smaxXquby">
                                             <form action="{{ route('post') }}" method="POST">
                                                 @csrf
-                                                <input type="text" class="form-control form-control-sm bg-secondary mb-1"
+                                                <input type="text"
+                                                    class="form-control form-control-sm bg-secondary mb-1"
                                                     placeholder="Instagram ID" name="instagram" required>
-                                                <input type="text" class="form-control form-control-sm bg-secondary mb-2"
+                                                <input type="text"
+                                                    class="form-control form-control-sm bg-secondary mb-2"
                                                     placeholder="Link Postingan" name="link" required>
                                                 <button
                                                     class="btn btn-primary border-warning w-100 border-2 rounded-3 mb-2">Upload</button>

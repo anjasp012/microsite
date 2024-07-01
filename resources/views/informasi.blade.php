@@ -10,7 +10,7 @@
         <div class="accordion border-0" id="accordionExample">
             <div class="accordion-item border-0">
                 <h2 class="accordion-header">
-                    <button class="btn btn-transparent border-0 fw-bold fs-5 px-0 bg-light" type="button"
+                    <button class="btn btn-transparent border-0 fw-bold fs-5 px-0 w-100 bg-white text-start" type="button"
                         data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true"
                         aria-controls="collapseOne">
                         Peraturan Challenge “Kolektor Pentolan”
@@ -49,7 +49,7 @@
             </div>
             <div class="accordion-item border-0">
                 <h2 class="accordion-header">
-                    <button class="btn btn-transparent border-0 fw-bold fs-5 px-0 bg-light" type="button"
+                    <button class="btn btn-transparent border-0 fw-bold fs-5 px-0 w-100 bg-white text-start" type="button"
                         data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
                         aria-controls="collapseTwo">
                         Accordion Item #2
@@ -68,7 +68,7 @@
             </div>
             <div class="accordion-item border-0">
                 <h2 class="accordion-header">
-                    <button class="btn btn-transparent border-0 fw-bold fs-5 px-0 bg-light" type="button"
+                    <button class="btn btn-transparent border-0 fw-bold fs-5 px-0 w-100 bg-white text-start" type="button"
                         data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false"
                         aria-controls="collapseThree">
                         Accordion Item #3

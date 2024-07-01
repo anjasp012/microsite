@@ -56,6 +56,12 @@
                     <span>Postingan Member</span>
                 </a>
             </li>
+            <li class="nav-item {{ request()->routeIs('admin.leaderboard-member.*') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin.leaderboard-member.index') }}">
+                    <i class="fas fa-fw fa-arrow-up"></i>
+                    <span>Ranking Member</span>
+                </a>
+            </li>
 
             <hr class="sidebar-divider d-none d-md-block">
 

@@ -8,14 +8,19 @@
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-md-12">
+                <div class="card border-0 shadow-sm mb-4">
+                    <div class="card-body">
+                        <h3>Postingan Member</h3>
+                    </div>
+                </div>
+
                 <div class="card">
-                    <div class="card-header">{{ __('Postingan Member') }}</div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th class="text-center">Rk</th>
+                                        <th class="text-center">No</th>
                                         <th>Member</th>
                                         <th>Username</th>
                                         <th>Link Post</th>

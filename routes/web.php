@@ -11,10 +11,11 @@ Route::view('/hadiah', 'hadiah')->name('hadiah');
 
 Route::post('post', [App\Http\Controllers\Member\PostController::class, 'store'])->name('post');
 
-Route::middleware(['isAdmin'])->prefix('admin')->name('admin.')->group(function () {
+Route::middleware(['auth', 'isAdmin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/', App\Http\Controllers\Admin\DashboardController::class)->name('dashboard');
     Route::resource('postingan-member', App\Http\Controllers\Admin\PostController::class);
     Route::resource('daftar-member', App\Http\Controllers\Admin\MemberController::class);
+    Route::get('leaderboard-member', [App\Http\Controllers\Admin\LeaderboardController::class, 'index'])->name('leaderboard-member.index');
 });
 
 Route::get('/migrate', function () {

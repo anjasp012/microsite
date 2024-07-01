@@ -43,13 +43,24 @@
                                                 @enderror
                                             </div>
                                         </div>
-
                                         <div class="mb-2">
                                             <input id="username" type="text"
                                                 class="form-control @error('username') is-invalid @enderror" name="username"
                                                 required placeholder="username">
 
                                             @error('username')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
+
+                                        <div class="mb-2">
+                                            <input id="phone_number" type="text"
+                                                class="form-control @error('phone_number') is-invalid @enderror"
+                                                name="phone_number" required placeholder="phone number">
+
+                                            @error('phone_number')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
