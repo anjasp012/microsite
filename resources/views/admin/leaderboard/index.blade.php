@@ -11,10 +11,10 @@
             <div class="col-md-12">
                 <div class="card border-0 shadow-sm mb-4">
                     <div class="card-body">
-                        <div class="d-flex align-items-center">
+                        <div class="d-flex align-items-center justify-content-between">
                             <h3>Leaderboard Member</h3>
-                            <a href="{{ route('admin.leaderboard-member.reset') }}" class="btn btn-danger">Reset Ranking &
-                                Mulai Periode Baru</a>
+                            <a href="{{ route('admin.leaderboard-member.reset') }}" class="btn btn-sm btn-danger">Reset
+                                Poin</a>
                         </div>
                     </div>
                 </div>

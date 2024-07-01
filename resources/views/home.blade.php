@@ -153,6 +153,9 @@
                                 style="background-color: #f7f7f7" placeholder="Cari posisi kamu di sini">
                             <div class="text-center">
                                 <img src="/images/leaderboard.png" class="w-75 mt-1 mb-2" alt="leaderboard">
+                                <p class="m-0 p-0">
+                                    Periode 8 - 31 Juli
+                                </p>
                             </div>
                             <div class="table-responsive">
                                 <table class="table table-bordered table-leaderboard">
@@ -177,8 +180,8 @@
                                                             href="">{{ '@' . $member->username }}</a>
                                                     </th>
                                                     <th class="bg-warning text-center">
-                                                        <a class="w-100 text-decoration-none text-black"
-                                                            href="">1</a>
+                                                        <a class="w-100 text-decoration-none text-black" href="">8
+                                                            - 31 Juli</a>
                                                     </th>
                                                     <th class="bg-warning text-center">
                                                         <a class="w-100 text-decoration-none"
@@ -188,10 +191,12 @@
                                             @else
                                                 <tr>
                                                     <th class="bg-secondary text-center">{{ $no + 1 }}</th>
-                                                    <th class="bg-secondary">{{ '@' . $member->username }}</th>
+                                                    <th class="bg-secondary">
+                                                        {{ Str::limit('@' . $member->username, '5', '***') }}
+                                                    </th>
                                                     <th class="bg-secondary text-center">
                                                         <a class="w-100 text-decoration-none text-black"
-                                                            href="">1</a>
+                                                            href="">{{ rand(8, 31) }} Juli</a>
                                                     </th>
                                                     <th class="bg-secondary text-center">{{ $member->point }}</th>
                                                 </tr>
