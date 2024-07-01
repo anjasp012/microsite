@@ -40,14 +40,14 @@
         <div class="steps mb-3">
             <div class="row g-1">
                 <div class="col-4 d-flex">
-                    <div class="card rounded-3">
+                    <div class="card rounded-3 w-100">
                         <div class="card-body py-2">
-                            Upload foto stiker kamu
-                            Di IG Feed dengan Hashtag
+                            Upload foto stiker kamu <br>
+                            di IG Feed dengan Hashtag <br>
                             <strong>
-                                #KolektorPentolan (highlight)
-                            </strong>
-                            Dan tag 2 temen kamu lalu
+                                #KolektorPentolan
+                            </strong><br>
+                            dan tag 2 temen kamu lalu<br>
                             Follow IG
                             <strong>
                                 @SmaxIndonesia
@@ -57,20 +57,20 @@
                     </div>
                 </div>
                 <div class="col-4 d-flex">
-                    <div class="card rounded-3">
+                    <div class="card rounded-3 w-100">
                         <div class="card-body py-2">
                             Register di website
                             <strong>
                                 SmaxKolektorPentolan.com
                             </strong>
-                            dan upload link postingan IGmu
-                            Untuk konfirmasi keikutsertaan
+                            dan upload link postingan IGmu<br>
+                            untuk konfirmasi keikutsertaan
 
                         </div>
                     </div>
                 </div>
                 <div class="col-4 d-flex">
-                    <div class="card rounded-3">
+                    <div class="card rounded-3 w-100">
                         <div class="card-body py-2">
                             Tunggu pengumumannya di akhir minggu dan akhir bulan, semoga beruntung!
 
@@ -160,7 +160,8 @@
                                         <tr>
                                             <th class="bg-info text-light text-center">Rk</th>
                                             <th class="bg-info text-light text-center">Username</th>
-                                            <th class="bg-info text-light text-center">Share</th>
+                                            <th class="bg-info text-light text-center">Periode</th>
+                                            <th class="bg-info text-light text-center">Poin</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -176,6 +177,10 @@
                                                             href="">{{ '@' . $member->username }}</a>
                                                     </th>
                                                     <th class="bg-warning text-center">
+                                                        <a class="w-100 text-decoration-none text-black"
+                                                            href="">1</a>
+                                                    </th>
+                                                    <th class="bg-warning text-center">
                                                         <a class="w-100 text-decoration-none"
                                                             href="">{{ $member->point }}</a>
                                                     </th>
@@ -184,6 +189,10 @@
                                                 <tr>
                                                     <th class="bg-secondary text-center">{{ $no + 1 }}</th>
                                                     <th class="bg-secondary">{{ '@' . $member->username }}</th>
+                                                    <th class="bg-secondary text-center">
+                                                        <a class="w-100 text-decoration-none text-black"
+                                                            href="">1</a>
+                                                    </th>
                                                     <th class="bg-secondary text-center">{{ $member->point }}</th>
                                                 </tr>
                                             @endif

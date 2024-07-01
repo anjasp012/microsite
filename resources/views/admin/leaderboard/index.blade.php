@@ -11,7 +11,11 @@
             <div class="col-md-12">
                 <div class="card border-0 shadow-sm mb-4">
                     <div class="card-body">
-                        <h3>Leaderboard Member</h3>
+                        <div class="d-flex align-items-center">
+                            <h3>Leaderboard Member</h3>
+                            <a href="{{ route('admin.leaderboard-member.reset') }}" class="btn btn-danger">Reset Ranking &
+                                Mulai Periode Baru</a>
+                        </div>
                     </div>
                 </div>
                 <div class="card">

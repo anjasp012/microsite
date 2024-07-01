@@ -16,6 +16,7 @@ Route::middleware(['auth', 'isAdmin'])->prefix('admin')->name('admin.')->group(f
     Route::resource('postingan-member', App\Http\Controllers\Admin\PostController::class);
     Route::resource('daftar-member', App\Http\Controllers\Admin\MemberController::class);
     Route::get('leaderboard-member', [App\Http\Controllers\Admin\LeaderboardController::class, 'index'])->name('leaderboard-member.index');
+    Route::get('leaderboard-member/reset', [App\Http\Controllers\Admin\LeaderboardController::class, 'reset'])->name('leaderboard-member.reset');
 });
 
 Route::get('/migrate', function () {
