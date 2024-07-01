@@ -20,9 +20,10 @@ class LeaderboardController extends Controller
     public function reset()
     {
         $member = User::whereRole('member')->get();
+
         foreach ($member as $item) {
             $item->update([
-                'poin' => 0
+                'point' => 0
             ]);
         }
         return back();
