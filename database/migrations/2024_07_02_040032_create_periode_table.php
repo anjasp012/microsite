@@ -11,13 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('posts', function (Blueprint $table) {
+        Schema::create('periode', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
-            $table->foreignId('periode_id');
-            $table->string('instagram');
-            $table->string('link')->unique();
-            $table->integer('point');
+            $table->date('tgl_mulai');
+            $table->date('tgl_berakhir');
             $table->boolean('status');
             $table->timestamps();
         });
@@ -28,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('posts');
+        Schema::dropIfExists('periode');
     }
 };

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Periode;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -11,21 +12,11 @@ class LeaderboardController extends Controller
     public function index()
     {
         $leaderboard = User::whereRole('member')->orderByDesc('point')->get();
+        $periode = Periode::whereStatus(true)->first();
         $data = [
-            'leaderboard' => $leaderboard
+            'leaderboard' => $leaderboard,
+            'periode' => $periode
         ];
         return view('admin.leaderboard.index', $data);
-    }
-
-    public function reset()
-    {
-        $member = User::whereRole('member')->get();
-
-        foreach ($member as $item) {
-            $item->update([
-                'point' => 0
-            ]);
-        }
-        return back();
     }
 }

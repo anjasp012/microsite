@@ -12,9 +12,58 @@
                 <div class="card border-0 shadow-sm mb-4">
                     <div class="card-body">
                         <div class="d-flex align-items-center justify-content-between">
-                            <h3>Leaderboard Member</h3>
-                            <a href="{{ route('admin.leaderboard-member.reset') }}" class="btn btn-sm btn-danger">Reset
-                                Poin</a>
+                            <h3>Leaderboard Member
+                                @if ($periode)
+                                    <small>
+                                        (Periode {{ Date::parse($periode->tgl_mulai)->format('j') }} -
+                                        {{ Date::parse($periode->tgl_berakhir)->format('j F') }})
+                                    </small>
+                                @endif
+
+                            </h3>
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
+                                data-target="#exampleModal">
+                                Mulai Periode Baru
+                            </button>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel"> Reset Poin & Mulai Periode Baru
+                                            </h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <form action="{{ route('admin.periode.store') }}" method="POST">
+                                            <div class="modal-body">
+                                                @csrf
+                                                <div class="form-group">
+                                                    <label for="tgl_mulai" class="form-label">Tanggal Mulai Periode</label>
+                                                    <input type="date" name="tgl_mulai" id="tgl_mulai"
+                                                        class="form-control" required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="tgl_berakhir" class="form-label">Tanggal Berakhir
+                                                        Periode</label>
+                                                    <input type="date" name="tgl_berakhir" id="tgl_berakhir"
+                                                        class="form-control" required>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-dismiss="modal">Batal</button>
+                                                <button type="submit" class="btn btn-primary">Simpan</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>

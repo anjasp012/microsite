@@ -22,10 +22,12 @@
                                     <tr>
                                         <th class="text-center">No</th>
                                         <th>Member</th>
-                                        <th>Username</th>
+                                        <th>Link IG</th>
                                         <th>Link Post</th>
-                                        <th class="text-center">Point</th>
+                                        <th class="text-center">Periode</th>
+                                        <th class="text-center">Tanggal Upload</th>
                                         <th>Status</th>
+                                        <th class="text-center">Poin</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -37,36 +39,49 @@
                                                 {{ $post->member->username }}
                                             </td>
                                             <td>
-                                                <a href="{{ $post->instagram }}">{{ $post->instagram }}</a>
+                                                <a class="btn btn-sm btn-success" target="_blank"
+                                                    href="{{ $post->instagram }}">Buka</a>
                                             </td>
                                             <td>
-                                                <a href="{{ $post->link }}">{{ $post->link }}</a>
+                                                <a class="btn btn-sm btn-success" target="_blank"
+                                                    href="{{ $post->link }}">Buka</a>
+                                            </td>
+                                            <td class="text-center">
+                                                {{ Date::parse($post->periode->tgl_mulai)->format('j') }} -
+                                                {{ Date::parse($post->periode->tgl_berakhir)->format('j F') }}
+                                            </td>
+                                            <td class="text-center">
+                                                {{ $post->created_at->format('d-m-Y') }}
+                                            </td>
+                                            <td>
+                                                @if ($post->status)
+                                                    <div class="badge badge-success">Sudah direview</div>
+                                                @else
+                                                    <div class="badge badge-danger">Belum direview</div>
+                                                @endif
                                             </td>
                                             <td class="text-center">{{ $post->point }}</td>
                                             <td>
-                                                @if ($post->status)
-                                                    <div class="badge text-bg-success">Sudah direview</div>
-                                                @else
-                                                    <div class="badge text-bg-danger">Belum direview</div>
-                                                @endif
-                                            </td>
-                                            <td>
+
                                                 <!-- Button trigger modal -->
-                                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                                    data-bs-target="#beriPoint{{ $post->id }}">
+                                                <button type="button" class="btn btn-sm btn-primary" data-toggle="modal"
+                                                    data-target="#beriPoint{{ $post->id }}">
                                                     Beri Skor
                                                 </button>
 
                                                 <!-- Modal -->
-                                                <div class="modal fade" id="beriPoint{{ $post->id }}" tabindex="-1"
+                                                <div class="modal fade" id="beriPoint{{ $post->id }}"
+                                                    data-backdrop="static" data-keyboard="false" tabindex="-1"
                                                     aria-labelledby="beriPoint{{ $post->id }}Label" aria-hidden="true">
                                                     <div class="modal-dialog modal-dialog-centered">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                                <h1 class="modal-title fs-5"
-                                                                    id="beriPoint{{ $post->id }}Label">Beri Skor</h1>
-                                                                <button type="button" class="btn-close"
-                                                                    data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                <h5 class="modal-title fs-5"
+                                                                    id="beriPoint{{ $post->id }}Label">Beri Skor</h5>
+                                                                <button type="button" class="close" data-dismiss="modal"
+                                                                    aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
                                                             </div>
                                                             <form
                                                                 action="{{ route('admin.postingan-member.update', $post->id) }}"
@@ -84,7 +99,7 @@
                                                                 </div>
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-secondary"
-                                                                        data-bs-dismiss="modal">Batal</button>
+                                                                        data-dismiss="modal">Batal</button>
                                                                     <button type="submit"
                                                                         class="btn btn-primary">Simpan</button>
                                                                 </div>
@@ -92,6 +107,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
+
                                             </td>
                                         </tr>
                                     @endforeach

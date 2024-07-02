@@ -44,6 +44,12 @@
             <div class="sidebar-heading">
                 Menu
             </div>
+            <li class="nav-item {{ request()->routeIs('admin.leaderboard-member.*') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin.leaderboard-member.index') }}">
+                    <i class="fas fa-fw fa-arrow-up"></i>
+                    <span>Ranking Member</span>
+                </a>
+            </li>
             <li class="nav-item {{ request()->routeIs('admin.daftar-member.*') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('admin.daftar-member.index') }}">
                     <i class="fas fa-fw fa-users"></i>
@@ -56,11 +62,21 @@
                     <span>Postingan Member</span>
                 </a>
             </li>
-            <li class="nav-item {{ request()->routeIs('admin.leaderboard-member.*') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ route('admin.leaderboard-member.index') }}">
-                    <i class="fas fa-fw fa-arrow-up"></i>
-                    <span>Ranking Member</span>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-fw fa-wrench"></i>
+                    <span>Rekap Poin</span>
                 </a>
+                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Rekap Poin:</h6>
+                        <a class="collapse-item" href="utilities-color.html">Per Mingguan</a>
+                        <a class="collapse-item" href="utilities-border.html">Per Bulan/Periode</a>
+                    </div>
+                </div>
             </li>
 
             <hr class="sidebar-divider d-none d-md-block">

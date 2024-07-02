@@ -120,7 +120,7 @@
                                         <div class="card-body">
                                             <img src="/images/smaxXquby.png" class="mb-2" style="margin-top: 48px"
                                                 width="80%" alt="smaxXquby">
-                                            <form action="{{ route('post') }}" method="POST">
+                                            <form id='form-post' action="{{ route('post') }}" method="POST">
                                                 @csrf
                                                 <input type="text"
                                                     class="form-control form-control-sm bg-secondary mb-1"
@@ -128,8 +128,14 @@
                                                 <input type="text"
                                                     class="form-control form-control-sm bg-secondary mb-2"
                                                     placeholder="Link Postingan" name="link" required>
-                                                <button
-                                                    class="btn btn-primary border-warning w-100 border-2 rounded-3 mb-2">Upload</button>
+                                                @if (@$postMingguIni == null)
+                                                    <button
+                                                        class="btn btn-primary border-warning w-100 border-2 rounded-3 mb-2">Upload</button>
+                                                @else
+                                                    <button type="button" data-bs-toggle="modal"
+                                                        data-bs-target="#yakinModal"
+                                                        class="btn btn-primary border-warning w-100 border-2 rounded-3 mb-2">Upload</button>
+                                                @endif
                                                 <p class="starmoly">Starmoly.All rights reserved.</p>
                                             </form>
                                         </div>
@@ -140,6 +146,43 @@
                     </div>
                 </div>
             </div>
+
+            <div class="modal fade" id="yakinModal" tabindex="-1" aria-labelledby="yakinModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content bg-transparent border-0">
+                        <div class="row justify-content-center">
+                            <div class="col-9">
+                                <div class="upload position-relative">
+                                    <div class="bg-primary position-absolute rounded-3 top-0 start-0 bottom-0 end-0 rotate-2"
+                                        style="transform: rotate(1.5deg)"></div>
+                                    <div class="header-popup">
+                                        <img src="/images/kamu-yakin.png" width="70%" alt="yakin">
+                                    </div>
+                                    <div class="card rounded-3 border-0">
+                                        <div class="card-body">
+                                            <p style="line-height:18px" class="text-primary fw-bold mt-4">
+                                                Kamu ada postingan koleksi <br> baru ya? Dengan upload<br> lagi, kami akan
+                                                pakai
+                                                entry<br> kamu yang baru dan hapus<br> yang lama, ya! Lanjut?
+                                            </p>
+                                            <div class="d-flex gap-3 justify-content-center">
+                                                <button data-bs-dismiss="modal"
+                                                    class="btn btn-primary border-warning border-2 rounded-3 mb-2">Nanti
+                                                    Deh</button>
+                                                <button id="lanjut"
+                                                    class="btn btn-primary border-warning border-2 rounded-3 mb-2">Lanjut
+                                                    !</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
 
         </div>
         <div class="row justify-content-center position-relative mb-3" style="z-index: 100">
@@ -154,7 +197,10 @@
                             <div class="text-center">
                                 <img src="/images/leaderboard.png" class="w-75 mt-1 mb-2" alt="leaderboard">
                                 <p class="m-0 p-0">
-                                    Periode 8 - 31 Juli
+                                    @if ($periode)
+                                        Periode {{ Date::parse($periode->tgl_mulai)->format('j') }} -
+                                        {{ Date::parse($periode->tgl_berakhir)->format('j F') }}
+                                    @endif
                                 </p>
                             </div>
                             <div class="table-responsive">
@@ -213,7 +259,7 @@
                         src="/images/button-tiktok.png" class="w-100" alt="tiktok"></a></div>
         </div>
     </div>
-    <footer class="mt-3 bg-success">
+    <footer class="mt-3 py-2 bg-success">
         <div class="container">
             <h5 class="text-center text-light fw-bold">Cek juga ya postingan teman lainnya!</h5>
             <p class="text-center text-light p-0 m-0">Starmoly.All rights reserved.</p>
@@ -239,5 +285,24 @@
                 oTable.search($(this).val()).draw();
             })
         });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+    @session('error')
+        <script>
+            // Example of a basic SweetAlert alert
+            Swal.fire({
+                text: '{{ session('error') }}',
+                icon: 'error',
+                confirmButtonText: 'OK'
+            });
+        </script>
+    @endsession
+
+    <script>
+        $('#lanjut').on('click', function() {
+            $('#form-post').submit()
+        })
     </script>
 @endpush
