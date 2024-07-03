@@ -39,51 +39,9 @@
     <div class="container">
         <div class="steps mb-3">
             <div class="row g-1">
-                <div class="col-4 d-flex">
-                    <div class="card rounded-3 w-100">
-                        <div class="card-body py-2">
-                            Upload foto stiker kamu <br>
-                            di IG Feed dengan Hashtag <br>
-                            <strong>
-                                #KolektorPentolan
-                            </strong><br>
-                            dan tag 2 temen kamu lalu<br>
-                            Follow IG
-                            <strong>
-                                @SmaxIndonesia
-                            </strong>
-
-                        </div>
-                    </div>
+                <div class="col-12">
+                    <img src="/images/step.png" class="w-100" alt="step">
                 </div>
-                <div class="col-4 d-flex">
-                    <div class="card rounded-3 w-100">
-                        <div class="card-body py-2">
-                            Register di website
-                            <strong>
-                                SmaxKolektorPentolan.com
-                            </strong>
-                            dan upload link postingan IGmu<br>
-                            untuk konfirmasi keikutsertaan
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4 d-flex">
-                    <div class="card rounded-3 w-100">
-                        <div class="card-body py-2">
-                            Tunggu pengumumannya di akhir minggu dan akhir bulan, semoga beruntung!
-
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <div class="next-1">
-                <img src="/images/next-1.png" alt="next1">
-            </div>
-            <div class="next-2">
-                <img src="/images/next-2.png" alt="next2">
             </div>
         </div>
         <div class="informasi d-flex gap-1 justify-content-center align-items-center mb-3">
@@ -122,8 +80,7 @@
                                                 width="80%" alt="smaxXquby">
                                             <form id='form-post' action="{{ route('post') }}" method="POST">
                                                 @csrf
-                                                <input type="text"
-                                                    class="form-control form-control-sm bg-secondary mb-1"
+                                                <input type="text" class="form-control form-control-sm bg-secondary mb-1"
                                                     placeholder="Instagram ID" name="instagram" required>
                                                 <input type="text"
                                                     class="form-control form-control-sm bg-secondary mb-2"
