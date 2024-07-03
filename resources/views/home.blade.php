@@ -243,7 +243,7 @@
             oTable = $('table')
                 .DataTable({
                     "language": {
-                        "sEmptyTable": "Tidak ada data di database"
+                        "sEmptyTable": "Tidak ada data"
                     },
                     dom: 't',
                     paging: false
