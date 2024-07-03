@@ -5,7 +5,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.0.8/css/dataTables.bootstrap5.css">
 @endpush
 @section('content')
-    <div id="carouselExampleIndicators" class="carousel slide mb-3">
+    <div id="carouselExampleIndicators" class="carousel slide mb-2">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
                 aria-current="true" aria-label="Slide 1"></button>
