@@ -7,7 +7,7 @@
 @section('content')
     <div class="container">
         <img src="/images/informasi.png" class="w-100 my-3" alt="informasi">
-        <div class="accordion border-0" id="accordionExample">
+        <div class="accordion border-0 mb-4" id="accordionExample">
             @foreach ($informasi as $no => $item)
                 <div class="accordion-item border-0">
                     <h2 class="accordion-header">
@@ -26,6 +26,18 @@
                     </div>
                 </div>
             @endforeach
+        </div>
+        <div class="row justify-content-between align-items-center mb-5">
+            <div class="col-3">
+                <a href="{{ route('home') }}">
+                    <img src="/images/kembali.png" class="w-100" alt="kembali">
+                </a>
+            </div>
+            <div class="col-4">
+                <a href="{{ route('home') }}">
+                    <img src="/images/setuju.png" class="w-100" alt="kembali">
+                </a>
+            </div>
         </div>
     </div>
 @endsection
