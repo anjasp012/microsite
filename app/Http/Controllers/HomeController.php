@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Informasi;
 use App\Models\Periode;
 use App\Models\Post;
 use App\Models\User;
@@ -32,5 +33,13 @@ class HomeController extends Controller
             'periode' => $periode,
         ];
         return view('home', $data);
+    }
+
+    public function informasi()
+    {
+        $data = [
+            'informasi' => Informasi::whereStatus(true)->get()
+        ];
+        return view('informasi', $data);
     }
 }

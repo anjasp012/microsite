@@ -79,6 +79,15 @@
                 </div>
             </li>
 
+            <div class="sidebar-heading">
+                Lainnya
+            </div>
+            <li class="nav-item {{ request()->routeIs('admin.leaderboard-member.*') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin.informasi.index') }}">
+                    <i class="fas fa-fw fa-info"></i>
+                    <span>Informasi</span>
+                </a>
+            </li>
             <hr class="sidebar-divider d-none d-md-block">
 
             <div class="text-center d-none d-md-inline">
