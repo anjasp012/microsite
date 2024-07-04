@@ -184,7 +184,7 @@
                                                     </th>
                                                     <th class="bg-warning text-center">
                                                         <a class="w-100 text-decoration-none"
-                                                            href="">{{ $member->updated_at->format('d M') }}</a>
+                                                            href="">{{ $member->latestPost != null ? $member->latestPost->updated_at->format('d M') : '-' }}</a>
                                                     </th>
                                                     <th class="bg-warning text-center">
                                                         <a class="w-100 text-decoration-none"
@@ -198,7 +198,8 @@
                                                         {{ Str::limit('@' . $member->username, '5', '***') }}
                                                     </th>
                                                     <th class="bg-secondary text-center">
-                                                        {{ $member->updated_at->format('d M') }}</th>
+                                                        {{ $member->latestPost != null ? $member->latestPost->updated_at->format('d M') : '-' }}
+                                                    </th>
                                                     <th class="bg-secondary text-center">{{ $member->point }}</th>
                                                 </tr>
                                             @endif

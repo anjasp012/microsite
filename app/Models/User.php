@@ -53,4 +53,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Post::class);
     }
+
+    function getLatestPostAttribute()
+    {
+        return $this->post()->whereStatus(true)->latest()->first();
+    }
 }
