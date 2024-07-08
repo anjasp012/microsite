@@ -57,15 +57,14 @@
 
                         </li>
                     @else
-                        <li class="nav-item">
+                        <div class="d-flex gap-1">
                             <a href="{{ route('register') }}" class="btn btn-secondary btn-sm fw-bold btn-register"
                                 href="#">Register</a>
-                        </li>
-                        <li class="nav-item">
+
                             <a href="{{ route('login') }}" class="btn btn-success btn-sm fw-bold text-white px-3 btn-login"
                                 aria-disabled="true">Log
                                 in</a>
-                        </li>
+                        </div>
                     @endauth
                 </ul>
             </div>

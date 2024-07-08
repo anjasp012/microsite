@@ -50,51 +50,91 @@
             </p>
             <a href="{{ route('informasi') }}" class="btn btn-sm btn-info btn-informasi shadow-sm">Informasi</a>
         </div>
-        <div class="action-upload mb-3">
-            @auth
-                @if (auth()->user()->role != 'admin')
-                    <a type="button" data-bs-toggle="modal" class="bg-transparent p-0 m-0 w-auto"
-                        data-bs-target="#uploadModal">
-                        <img src="/images/upload.png" width="80%" class="shadow-sm" alt="upload">
+        <div class="row justify-content-center mb-3">
+            <div class="col-7 col-md-4">
+                @auth
+                    @if (auth()->user()->role != 'admin')
+                        <a type="button" data-bs-toggle="modal" class="bg-transparent p-0 m-0 w-auto"
+                            data-bs-target="#uploadModal">
+                            <img src="/images/upload.png" class="w-100" alt="upload">
+                        </a>
+                    @endif
+                @else
+                    <a href="{{ route('login') }}" class="bg-transparent p-0 m-0 w-auto">
+                        <img src="/images/upload.png" class="w-100" alt="upload">
                     </a>
-                @endif
-            @else
-                <a href="{{ route('login') }}" class="bg-transparent p-0 m-0 w-auto">
-                    <img src="/images/upload.png" width="80%" alt="upload">
-                </a>
-            @endauth
-            <div class="modal fade" id="uploadModal" tabindex="-1" aria-labelledby="uploadModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content bg-transparent border-0">
-                        <div class="row justify-content-center">
-                            <div class="col-9">
-                                <div class="upload position-relative">
-                                    <div class="bg-primary position-absolute rounded-3 top-0 start-0 bottom-0 end-0 rotate-2"
-                                        style="transform: rotate(1.5deg)"></div>
-                                    <div class="header-popup">
-                                        <img src="/images/ayo.png" width="94%" alt="popup1">
+                @endauth
+            </div>
+        </div>
+        <div class="modal fade" id="uploadModal" tabindex="-1" aria-labelledby="uploadModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content bg-transparent border-0">
+                    <div class="row justify-content-center">
+                        <div class="col-9 col-md-12">
+                            <div class="upload position-relative">
+                                <div class="bg-primary position-absolute rounded-3 top-0 start-0 bottom-0 end-0 rotate-2"
+                                    style="transform: rotate(1.5deg)"></div>
+                                <div class="header-popup">
+                                    <img src="/images/ayo.png" class="ayo" alt="popup1">
+                                </div>
+                                <div class="card rounded-3 border-0">
+                                    <div class="card-body">
+                                        <div class="smax-wrapper mb-2">
+                                            <img src="/images/smaxXquby.png" class="smax" width="80%" alt="smaxXquby">
+                                        </div>
+                                        <form id='form-post' action="{{ route('post') }}" method="POST">
+                                            @csrf
+                                            <input type="text" class="form-control form-control-sm bg-secondary mb-1"
+                                                placeholder="Instagram ID" name="instagram" required>
+                                            <input type="text" class="form-control form-control-sm bg-secondary mb-2"
+                                                placeholder="Link Postingan" name="link" required>
+                                            @if (@$postMingguIni == null)
+                                                <button
+                                                    class="btn btn-primary border-warning w-100 border-2 rounded-3 mb-2">Upload</button>
+                                            @else
+                                                <button type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#yakinModal"
+                                                    class="btn btn-primary border-warning w-100 border-2 rounded-3 mb-2">Upload</button>
+                                            @endif
+                                            <p class="starmoly">Starmoly.All rights reserved.</p>
+                                        </form>
                                     </div>
-                                    <div class="card rounded-3 border-0">
-                                        <div class="card-body">
-                                            <img src="/images/smaxXquby.png" class="mb-2" style="margin-top: 48px"
-                                                width="80%" alt="smaxXquby">
-                                            <form id='form-post' action="{{ route('post') }}" method="POST">
-                                                @csrf
-                                                <input type="text" class="form-control form-control-sm bg-secondary mb-1"
-                                                    placeholder="Instagram ID" name="instagram" required>
-                                                <input type="text"
-                                                    class="form-control form-control-sm bg-secondary mb-2"
-                                                    placeholder="Link Postingan" name="link" required>
-                                                @if (@$postMingguIni == null)
-                                                    <button
-                                                        class="btn btn-primary border-warning w-100 border-2 rounded-3 mb-2">Upload</button>
-                                                @else
-                                                    <button type="button" data-bs-toggle="modal"
-                                                        data-bs-target="#yakinModal"
-                                                        class="btn btn-primary border-warning w-100 border-2 rounded-3 mb-2">Upload</button>
-                                                @endif
-                                                <p class="starmoly">Starmoly.All rights reserved.</p>
-                                            </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="yakinModal" tabindex="-1" aria-labelledby="yakinModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content bg-transparent border-0">
+                    <div class="row justify-content-center">
+                        <div class="col-9 col-md-12">
+                            <div class="upload position-relative">
+                                <div class="bg-primary position-absolute rounded-3 top-0 start-0 bottom-0 end-0 rotate-2"
+                                    style="transform: rotate(1.5deg)"></div>
+                                <div class="header-popup">
+                                    <img src="/images/kamu-yakin.png" class="kamu" alt="yakin">
+                                </div>
+                                <div class="card rounded-3 border-0">
+                                    <div class="card-body">
+                                        <p style="line-height:18px" class="text-primary text-center fw-bold mt-4">
+                                            Kamu ada postingan koleksi <br class="d-md-none"> baru ya? <br
+                                                class="d-none d-md-block"> Dengan upload<br class="d-md-none"> lagi,
+                                            kami akan
+                                            pakai
+                                            entry<br> kamu yang baru dan hapus<br> yang lama, ya!
+                                            Lanjut?
+                                        </p>
+                                        <div class="d-flex gap-3 justify-content-center">
+                                            <button data-bs-dismiss="modal"
+                                                class="btn btn-primary border-warning border-2 rounded-3 mb-2">Nanti
+                                                Deh</button>
+                                            <button id="lanjut"
+                                                class="btn btn-primary border-warning border-2 rounded-3 mb-2">Lanjut
+                                                !</button>
                                         </div>
                                     </div>
                                 </div>
@@ -103,47 +143,9 @@
                     </div>
                 </div>
             </div>
-
-            <div class="modal fade" id="yakinModal" tabindex="-1" aria-labelledby="yakinModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content bg-transparent border-0">
-                        <div class="row justify-content-center">
-                            <div class="col-9">
-                                <div class="upload position-relative">
-                                    <div class="bg-primary position-absolute rounded-3 top-0 start-0 bottom-0 end-0 rotate-2"
-                                        style="transform: rotate(1.5deg)"></div>
-                                    <div class="header-popup">
-                                        <img src="/images/kamu-yakin.png" width="70%" alt="yakin">
-                                    </div>
-                                    <div class="card rounded-3 border-0">
-                                        <div class="card-body">
-                                            <p style="line-height:18px" class="text-primary fw-bold mt-4">
-                                                Kamu ada postingan koleksi <br> baru ya? Dengan upload<br> lagi, kami akan
-                                                pakai
-                                                entry<br> kamu yang baru dan hapus<br> yang lama, ya! Lanjut?
-                                            </p>
-                                            <div class="d-flex gap-3 justify-content-center">
-                                                <button data-bs-dismiss="modal"
-                                                    class="btn btn-primary border-warning border-2 rounded-3 mb-2">Nanti
-                                                    Deh</button>
-                                                <button id="lanjut"
-                                                    class="btn btn-primary border-warning border-2 rounded-3 mb-2">Lanjut
-                                                    !</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
         </div>
         <div class="row justify-content-center position-relative mb-3" style="z-index: 100">
-            <div class="col-9">
+            <div class="col-9 col-md-5">
                 <div class="leaderboard position-relative">
                     <div class="bg-primary position-absolute rounded-3 top-0 start-0 bottom-0 end-0 rotate-2"
                         style="transform: rotate(1.5deg)"></div>
@@ -152,7 +154,11 @@
                             <input id="leaderboardSearch" type="text" class="form-control form-control-sm border-0"
                                 style="background-color: #f7f7f7" placeholder="Cari posisi kamu di sini">
                             <div class="text-center">
-                                <img src="/images/leaderboard.png" class="w-75 mt-1 mb-2" alt="leaderboard">
+                                <div class="row justify-content-center mt-2 mb-2">
+                                    <div class="col-9 col-md-6">
+                                        <img src="/images/leaderboard.png" class="w-100" alt="leaderboard">
+                                    </div>
+                                </div>
                                 <p class="m-0 p-0">
                                     @if ($periode)
                                         Periode {{ Date::parse($periode->tgl_mulai)->format('j') }} -
@@ -213,15 +219,15 @@
             </div>
         </div>
         <div class="row justify-content-center mb-3">
-            <div class="col-10">
-                <img src="/images/terus.png" alt="terus-kumpulkan" class="w-100 rounded shadow-sm">
+            <div class="col-11 col-md-7">
+                <img src="/images/terus.png" alt="terus-kumpulkan" class="w-100">
             </div>
         </div>
         <div class="row justify-content-center align-items-center">
-            <div class="col-5"> <a href="https://id.shp.ee/iS2FqYY" target="_blank" class="text-end"><img
+            <div class="col-5 col-md-3"> <a href="https://id.shp.ee/iS2FqYY" target="_blank" class="text-end"><img
                         src="/images/button-ecommerce.png" class="w-100" alt="ecommerce"></a></div>
-            <div class="col-5"> <a href="https://www.tiktok.com/@smaxindonesia?_t=8nWGGcMqy8m&_r=1" target="_blank"><img
-                        src="/images/button-tiktok.png" class="w-100" alt="tiktok"></a></div>
+            <div class="col-5 col-md-3"> <a href="https://www.tiktok.com/@smaxindonesia?_t=8nWGGcMqy8m&_r=1"
+                    target="_blank"><img src="/images/button-tiktok.png" class="w-100" alt="tiktok"></a></div>
         </div>
     </div>
     <footer class="mt-3 py-2 bg-success">

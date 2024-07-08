@@ -1,0 +1,54 @@
+.bg-masuk{
+    background-image: url('/public/images/masuk/bg-masuk.png');
+    background-size: cover;
+    min-height: 100vh;
+    @include media-breakpoint-up(md) {
+        background-image: url('/public/images/masuk/bg-masuk-large.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+}
+.bg-daftar{
+    background-image: url('/public/images/daftar/bg-daftar.png');
+    background-size: cover;
+    min-height: 100vh;
+    @include media-breakpoint-up(md) {
+        background-image: url('/public/images/daftar/bg-daftar-large.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+}
+.bg-hadiah{
+    background-image: url('/public/images/hadiah/bg-hadiah.png');
+    background-size: cover;
+    min-height: 100vh;
+    @include media-breakpoint-up(md) {
+        background-image: url('/public/images/hadiah/bg-hadiah-large.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+}
+
+.wrapper-auth{
+    min-height: 100vh;
+}
+
+.btn-login{
+    width: 100%;
+    @include media-breakpoint-up(md) {
+        width: 80%;
+    }
+}
+
+.hadiah{
+    padding: 8px 12px;
+    @include media-breakpoint-up(md) {
+       padding: 6px 8px;
+    }
+    .bg-primary{
+        transform: rotate(1.5deg);
+        @include media-breakpoint-up(md) {
+          transform: rotate(0.6deg);
+        }
+    }
+}

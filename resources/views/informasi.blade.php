@@ -28,12 +28,12 @@
             @endforeach
         </div>
         <div class="row justify-content-between align-items-center mb-5">
-            <div class="col-3">
+            <div class="col-3 col-md-1">
                 <a href="{{ route('home') }}">
                     <img src="/images/kembali.png" class="w-100" alt="kembali">
                 </a>
             </div>
-            <div class="col-4">
+            <div class="col-4 col-md-2">
                 <a href="{{ route('home') }}">
                     <img src="/images/setuju.png" class="w-100" alt="kembali">
                 </a>

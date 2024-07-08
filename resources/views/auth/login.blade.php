@@ -2,19 +2,21 @@
 
 @section('content')
     <div class="container">
-        <div class="row align-items-center" style="min-height: 100vh">
+        <div class="row align-items-center wrapper-auth">
             <div class="col-12">
                 <div class="row justify-content-center">
-                    <div class="col-10 mb-5">
+                    <div class="col-10 col-md-5 mb-5">
                         <div class="auth position-relative" style="padding: 8px">
                             <div class="bg-primary position-absolute rounded-3 top-0 start-0 bottom-0 end-0 rotate-2"
                                 style="transform: rotate(1.5deg)"></div>
                             <div class="card rounded-3 border-0">
                                 <div class="card-body">
-                                    <div class="text-center mb-3">
-                                        <img src="/images/masuk.png" class="w-50" alt="masuk">
+                                    <div class="row mb-3 justify-content-center">
+                                        <div class="col-6 col-md-4">
+                                            <img src="/images/masuk.png" class="w-100" alt="masuk">
+                                        </div>
                                     </div>
-                                    <form method="POST" action="{{ route('login') }}">
+                                    <form method="POST" class="px-0 px-md-5" action="{{ route('login') }}">
                                         @csrf
 
                                         <div class="mb-2">
@@ -53,9 +55,12 @@
                                             </div>
                                         </div>
 
-                                        <button type="submit" class="btn btn-info w-100 mb-3 rounded-0 text-light fw-bold">
-                                            Kirim
-                                        </button>
+                                        <div class="text-center">
+                                            <button type="submit"
+                                                class="btn btn-info btn-login mb-3 rounded-0 text-light fw-bold">
+                                                Kirim
+                                            </button>
+                                        </div>
                                         <div class="text-center">
                                             <small class="m-0 p-0 d-block">belum punya akun?</small>
                                             <a class="fw-bold text-decoration-none text-dark"
@@ -69,7 +74,12 @@
                         </div>
                     </div>
                     <div class="col-12">
-                        <a href="{{ route('home') }}"><img src="/images/kembali.png" width="20%" alt="kembali"></a>
+                        <div class="row">
+                            <div class="col-3 col-md-1 mt-0 mt-md-4">
+                                <a href="{{ route('home') }}"><img src="/images/kembali.png" class="w-100"
+                                        alt="kembali"></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

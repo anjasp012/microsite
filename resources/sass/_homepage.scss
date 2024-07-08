@@ -1,5 +1,9 @@
 .btn-register, .btn-login{
     border-radius: 10px;
+    @include media-breakpoint-up(md) {
+        border-radius: 4px;
+        font-size: 14px;
+    }
 }
 
 .steps{
@@ -35,6 +39,9 @@
 
 .informasi{
     font-size: 9px;
+    @include media-breakpoint-up(md) {
+        font-size: 16px;
+    }
     color: $primary;
     .btn-informasi{
         color: #fff;
@@ -42,6 +49,9 @@
         padding: 0px 4px;
         border-radius: 2px;
         font-weight: 700;
+        @include media-breakpoint-up(md) {
+            font-size: 16px;
+        }
         &:hover{
             box-shadow: none !important;
         }
@@ -76,15 +86,39 @@
         position: absolute;
         top: -24px;
         z-index: 2;
+        text-align: center;
     }
     .card-body{
         padding-top: 0px;
         padding-bottom: 0px;
+        .smax-wrapper{
+            text-align: center;
+            .smax{
+                margin-top: 48px;
+                @include media-breakpoint-up(md) {
+                    margin-top: 100px;
+                }
+            }
+        }
     }
     .starmoly{
         font-size: 9px;
         font-weight: 700;
         padding: 0px;
         margin: 0px;
+        text-align: center;
     }
+}
+
+.ayo{
+    width: 94%;
+    @include media-breakpoint-up(md) {
+        width: 80%;
+     }
+}
+.kamu{
+    width: 94%;
+    @include media-breakpoint-up(md) {
+        width: 50%;
+     }
 }

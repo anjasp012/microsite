@@ -24,13 +24,13 @@
 
 @if (request()->routeIs('login'))
 
-    <body style="background-image: url('/images/bg-masuk.png'); background-size: cover;min-height: 100vh">
+    <body class="bg-masuk">
     @elseif (request()->routeIs('register'))
 
-        <body style="background-image: url('/images/bg-daftar.png'); background-size: cover;min-height: 100vh">
+        <body class="bg-daftar">
         @else
 
-            <body style="background-image: url('/images/bg-hadiah.png'); background-size: cover;min-height: 100vh">
+            <body class="bg-hadiah">
 @endif
 <div id="app">
     <main>
