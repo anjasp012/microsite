@@ -161,7 +161,7 @@
                                 </div>
                                 <p class="m-0 p-0">
                                     @if ($periode)
-                                        Periode {{ Date::parse($periode->tgl_mulai)->format('j') }} -
+                                        Periode {{ Date::parse($periode->tgl_mulai)->format('j F') }} -
                                         {{ Date::parse($periode->tgl_berakhir)->format('j F') }}
                                     @endif
                                 </p>
