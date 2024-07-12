@@ -15,8 +15,8 @@ class PeriodeController extends Controller
 {
     public function store(Request $request)
     {
-        $periodeSebelumnyaAktif = Periode::where('status', '1')->get();
-        if ($periodeSebelumnyaAktif) {
+        $periodeSebelumnyaAktif = Periode::where('status', '1')->first();
+        if ($periodeSebelumnyaAktif != null) {
             return back()->with('error', 'stop periode sebelumnya sebelum memulai periode baru');
         }
         Periode::create([

@@ -35,9 +35,11 @@ class HomeController extends Controller
         }
         $periode = Periode::whereStatus(true)->first();
         $members = User::whereRole('member')->orderByDesc('point')->get();
+        $updated = User::whereRole('member')->orderByDesc('updated_at')->first();
         $data += [
             'members' => $members,
             'periode' => $periode,
+            'updated' => $updated,
         ];
         return view('home', $data);
     }

@@ -15,7 +15,7 @@
                             <h3>Leaderboard Member
                                 @if ($periode)
                                     <small>
-                                        (Periode {{ Date::parse($periode->tgl_mulai)->format('j') }} -
+                                        (Periode {{ Date::parse($periode->tgl_mulai)->format('j F') }} -
                                         {{ Date::parse($periode->tgl_berakhir)->format('j F') }})
                                     </small>
                                 @endif
@@ -125,4 +125,17 @@
             $('table').DataTable();
         });
     </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+    @session('error')
+        <script>
+            // Example of a basic SweetAlert alert
+            Swal.fire({
+                text: '{{ session('error') }}',
+                icon: 'error',
+                confirmButtonText: 'OK'
+            });
+        </script>
+    @endsession
 @endpush

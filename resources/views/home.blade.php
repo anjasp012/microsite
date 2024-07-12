@@ -215,7 +215,14 @@
                             </div>
                         </div>
                     </div>
+                    <div class="icon-white">
+                        <img src="/images/leaderboard-icon-white.png" alt="white">
+                    </div>
+                    <div class="icon-blue">
+                        <img src="/images/leaderboard-icon-blue.png" alt="white">
+                    </div>
                 </div>
+                <small class="fw-bold ms-4"><i>Update {{ $updated->updated_at->format('d/m/Y') }}</i></small>
             </div>
         </div>
         <div class="row justify-content-center mb-3">
