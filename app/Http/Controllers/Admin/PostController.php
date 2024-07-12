@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\HistoriMingguan;
+use App\Models\Periode;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -71,6 +73,21 @@ class PostController extends Controller
             $user->update([
                 'point' => $user->point + $request->point
             ]);
+
+            $periodeSaatIni = Periode::latest()->first();
+            $historiMingguIni = HistoriMingguan::wherePostId($post->id)->first();
+            if ($historiMingguIni != null) {
+                $historiMingguIni->update([
+                    'point' => $request->point,
+                ]);
+            } else {
+                HistoriMingguan::create([
+                    'periode_id' => $periodeSaatIni->id,
+                    'post_id' => $post->id,
+                    'point' => $request->point,
+                    'user_id' => $user->id
+                ]);
+            }
         }
         return back();
     }

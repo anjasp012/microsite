@@ -22,10 +22,19 @@
 
                             </h3>
                             <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
-                                data-target="#exampleModal">
-                                Mulai Periode Baru
-                            </button>
+                            <div class="d-flex">
+                                @if ($periode)
+                                    <form action="{{ route('admin.periode.stop') }}" method="POST">
+                                        @csrf
+                                        @method('PUT')
+                                        <button class="btn btn-danger mr-2">Stop Periode</button>
+                                    </form>
+                                @endif
+                                <button type="button" class="btn btn-success btn-sm" data-toggle="modal"
+                                    data-target="#exampleModal">
+                                    Mulai Periode Baru
+                                </button>
+                            </div>
 
                             <!-- Modal -->
                             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -69,28 +78,32 @@
                 </div>
                 <div class="card border-0 shadow-sm mb-4">
                     <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th class="text-center">Rk</th>
-                                        <th>Member</th>
-                                        <th class="text-center">Point</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($leaderboard as $no => $item)
+                        @if ($periode)
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
                                         <tr>
-                                            <td class="text-center">{{ $no + 1 }}</td>
-                                            <td>
-                                                {{ $item->username }}
-                                            </td>
-                                            <td class="text-center">{{ $item->point }}</td>
+                                            <th class="text-center">Rk</th>
+                                            <th>Member</th>
+                                            <th class="text-center">Point</th>
                                         </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($leaderboard as $no => $item)
+                                            <tr>
+                                                <td class="text-center">{{ $no + 1 }}</td>
+                                                <td>
+                                                    {{ $item->username }}
+                                                </td>
+                                                <td class="text-center">{{ $item->point }}</td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        @else
+                            <div class="text-center">Tidak ada Periode Aktif, silahkan klik mulai periode baru</div>
+                        @endif
                     </div>
                 </div>
             </div>

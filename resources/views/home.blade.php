@@ -182,19 +182,19 @@
                                                 <tr>
                                                     <th class="bg-warning text-center">
                                                         <a class="w-100 text-decoration-none"
-                                                            href="">{{ $no + 1 }}</a>
+                                                            href="{{ route('postingan-saya') }}">{{ $no + 1 }}</a>
                                                     </th>
                                                     <th class="bg-warning">
                                                         <a class="w-100 text-decoration-none"
-                                                            href="">{{ '@' . $member->username }}</a>
+                                                            href="{{ route('postingan-saya') }}">{{ '@' . $member->username }}</a>
                                                     </th>
                                                     <th class="bg-warning text-center">
                                                         <a class="w-100 text-decoration-none"
-                                                            href="">{{ $member->latestPost != null ? $member->latestPost->updated_at->format('d M') : '-' }}</a>
+                                                            href="{{ route('postingan-saya') }}">{{ $member->latestPost != null ? $member->latestPost->updated_at->format('d M') : '-' }}</a>
                                                     </th>
                                                     <th class="bg-warning text-center">
                                                         <a class="w-100 text-decoration-none"
-                                                            href="">{{ $member->point }}</a>
+                                                            href="{{ route('postingan-saya') }}">{{ $member->point }}</a>
                                                     </th>
                                                 </tr>
                                             @else

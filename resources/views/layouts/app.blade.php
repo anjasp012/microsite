@@ -22,63 +22,70 @@
     @stack('style')
 </head>
 
-<body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-primary shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ route('home') }}">
-                    <img src="/images/home.png" width="30px" height="30px" alt="">
-                </a>
+@if (request()->routeIs('postingan-saya') || request()->routeIs('histori-poin'))
 
-                <ul class="nav ms-auto gap-1">
-                    @auth
-                        <li class="nav-item">
-                            <a class="btn btn-secondary btn-sm fw-bold btn-register dropdown-toggle" href="#"
-                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                {{ auth()->user()->name }}
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-end">
-                                <li><a class="dropdown-item" href="#">Postingan saya</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
+    <body class="bg-hadiah">
+    @else
+
+        <body>
+@endif
+<div id="app">
+    <nav class="navbar navbar-expand-md navbar-light bg-primary shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="{{ route('home') }}">
+                <img src="/images/home.png" width="30px" height="30px" alt="">
+            </a>
+
+            <ul class="nav ms-auto gap-1">
+                @auth
+                    <li class="nav-item">
+                        <a class="btn btn-secondary btn-sm fw-bold btn-register dropdown-toggle" href="#"
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            {{ auth()->user()->name }}
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end me-md-5 me-2">
+                            <li><a class="dropdown-item" href="{{ route('postingan-saya') }}">Postingan saya</a></li>
+                            <li><a class="dropdown-item" href="{{ route('histori-poin') }}">Histori Poin</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
                                       document.getElementById('logout-form').submit();">
-                                        {{ __('Log out') }}
-                                    </a>
+                                    {{ __('Log out') }}
+                                </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </li>
-                            </ul>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </li>
+                        </ul>
 
-                        </li>
-                    @else
-                        <div class="d-flex gap-1">
-                            <a href="{{ route('register') }}" class="btn btn-secondary btn-sm fw-bold btn-register"
-                                href="#">Register</a>
+                    </li>
+                @else
+                    <div class="d-flex gap-1">
+                        <a href="{{ route('register') }}" class="btn btn-secondary btn-sm fw-bold btn-register"
+                            href="#">Register</a>
 
-                            <a href="{{ route('login') }}" class="btn btn-success btn-sm fw-bold text-white px-3 btn-login"
-                                aria-disabled="true">Log
-                                in</a>
-                        </div>
-                    @endauth
-                </ul>
-            </div>
-        </nav>
+                        <a href="{{ route('login') }}" class="btn btn-success btn-sm fw-bold text-white px-3 btn-login"
+                            aria-disabled="true">Log
+                            in</a>
+                    </div>
+                @endauth
+            </ul>
+        </div>
+    </nav>
 
-        <main>
-            @yield('content')
-        </main>
-    </div>
+    <main>
+        @yield('content')
+    </main>
+</div>
 
-    {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+{{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script> --}}
-    @stack('script')
+@stack('script')
 </body>
 
 </html>

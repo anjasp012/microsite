@@ -5,16 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Periode extends Model
+class HistoriBulanan extends Model
 {
     use HasFactory;
 
-    protected $table = 'periode';
+    protected $table = 'histori_poin_bulanan';
 
     protected $guarded = ['id'];
 
-    public function historiPoinBulanan()
+    public function periode()
     {
-        return $this->hasMany(HistoriBulanan::class);
+        return $this->belongsTo(Periode::class);
     }
 }

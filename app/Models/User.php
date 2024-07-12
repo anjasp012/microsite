@@ -56,6 +56,11 @@ class User extends Authenticatable
 
     function getLatestPostAttribute()
     {
-        return $this->post()->whereStatus(true)->latest()->first();
+        $periodeAktif = Periode::whereStatus(true)->first();
+        if ($periodeAktif) {
+            return $this->post()->wherePeriodeId($periodeAktif->id)->whereStatus(true)->latest()->first();
+        } else {
+            return null;
+        }
     }
 }
