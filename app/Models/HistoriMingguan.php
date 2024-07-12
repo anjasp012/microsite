@@ -12,4 +12,9 @@ class HistoriMingguan extends Model
     protected $table = 'histori_poin_mingguan';
 
     protected $guarded = ['id'];
+
+    public function periode()
+    {
+        return $this->belongsTo(Periode::class, 'periode_id');
+    }
 }

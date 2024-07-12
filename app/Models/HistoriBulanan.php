@@ -17,4 +17,8 @@ class HistoriBulanan extends Model
     {
         return $this->belongsTo(Periode::class);
     }
+    public function member()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

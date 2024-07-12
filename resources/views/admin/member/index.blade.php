@@ -31,10 +31,10 @@
                                     <h5 class="font-weight-bold text-dark mb-1">
                                         {{ Str::limit($member->username, 5) }}
                                     </h5>
-                                    <p>
+                                    <p class="m-0">
                                         {{ $member->name }}
                                     </p>
-                                    <a href="" class="btn btn-primary px-lg-4">Detail</a>
+                                    {{-- <a href="" class="btn btn-primary px-lg-4">Detail</a> --}}
                                 </div>
                             </div>
                         </div>

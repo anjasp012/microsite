@@ -21,6 +21,9 @@ Route::middleware(['auth', 'isAdmin'])->prefix('admin')->name('admin.')->group(f
     Route::get('leaderboard-member', [App\Http\Controllers\Admin\LeaderboardController::class, 'index'])->name('leaderboard-member.index');
     Route::post('start-periode', [App\Http\Controllers\Admin\PeriodeController::class, 'store'])->name('periode.store');
     Route::put('stop-periode', [App\Http\Controllers\Admin\PeriodeController::class, 'stop'])->name('periode.stop');
+    Route::get('rekap-mingguan', [App\Http\Controllers\Admin\RekapController::class, 'rekapMingguan'])->name('rekap.mingguan');
+    Route::get('rekap-bulanan', [App\Http\Controllers\Admin\RekapController::class, 'rekapBulanan'])->name('rekap.bulanan');
+    Route::get('rekap-bulanan/{id}', [App\Http\Controllers\Admin\RekapController::class, 'rekapBulananShow'])->name('rekap.bulanan.show');
 });
 
 Route::get('/migrate', function () {

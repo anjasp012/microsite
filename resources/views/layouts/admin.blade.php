@@ -73,8 +73,8 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Rekap Poin:</h6>
-                        <a class="collapse-item" href="utilities-color.html">Per Mingguan</a>
-                        <a class="collapse-item" href="utilities-border.html">Per Bulan/Periode</a>
+                        {{-- <a class="collapse-item" href="{{ route('admin.rekap.mingguan') }}">Per Mingguan</a> --}}
+                        <a class="collapse-item" href="{{ route('admin.rekap.bulanan') }}">Per Bulan/Periode</a>
                     </div>
                 </div>
             </li>
