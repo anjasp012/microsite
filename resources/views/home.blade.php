@@ -246,8 +246,9 @@
 
         <div class="owl-carousel py-2 py-md-4">
             @foreach ($galleries as $gallery)
-                <div class="item"><img class="w-100" src="{{ asset('/storage/gallery/' . $gallery->file) }}"
-                        alt=""></div>
+                <div class="item"><img class="w-100" src="/storage/gallery/{{ $gallery->file }}"
+                        alt="{{ $gallery->file }}">
+                </div>
             @endforeach
         </div>
         <div class="container">
