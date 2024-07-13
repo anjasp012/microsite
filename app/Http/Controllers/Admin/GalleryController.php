@@ -80,7 +80,6 @@ class GalleryController extends Controller
     public function destroy(string $id)
     {
         $gallery  = Gallery::findOrFail($id);
-        dd($gallery);
         Storage::delete('public/gallery/' . $gallery->file);
         $gallery->delete();
         return back();
