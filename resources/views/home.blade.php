@@ -3,6 +3,8 @@
 
 @push('style')
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.0.8/css/dataTables.bootstrap5.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 @endpush
 @section('content')
     <div id="carouselExampleIndicators" class="carousel slide mb-2">
@@ -240,6 +242,15 @@
     <footer class="mt-3 py-2 bg-success">
         <div class="container">
             <h5 class="text-center text-light fw-bold">Cek juga ya postingan teman lainnya!</h5>
+        </div>
+
+        <div class="owl-carousel py-2 py-md-4">
+            @foreach ($galleries as $gallery)
+                <div class="item"><img class="w-100" src="{{ asset('storage/gallery/' . $gallery->file) }}"
+                        alt=""></div>
+            @endforeach
+        </div>
+        <div class="container">
             <p class="text-center text-light p-0 m-0">Starmoly.All rights reserved.</p>
         </div>
     </footer>
@@ -251,6 +262,8 @@
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/2.0.8/js/dataTables.bootstrap5.js">
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
 
     <script>
         $(document).ready(function() {
@@ -286,4 +299,26 @@
             $('#form-post').submit()
         })
     </script>
+    <script>
+        $(document).ready(function() {
+            $(".owl-carousel").owlCarousel({
+                loop: true,
+                margin: 10,
+                nav: true,
+                center: true,
+                responsive: {
+                    0: {
+                        items: 3.5
+                    },
+                    600: {
+                        items: 3.5
+                    },
+                    1000: {
+                        items: 5.5
+                    }
+                }
+            });
+        });
+    </script>
+
 @endpush

@@ -18,6 +18,7 @@ Route::middleware(['auth', 'isAdmin'])->prefix('admin')->name('admin.')->group(f
     Route::resource('postingan-member', App\Http\Controllers\Admin\PostController::class);
     Route::resource('daftar-member', App\Http\Controllers\Admin\MemberController::class);
     Route::resource('informasi', App\Http\Controllers\Admin\InformasiController::class);
+    Route::resource('gallery', App\Http\Controllers\Admin\GalleryController::class);
     Route::get('leaderboard-member', [App\Http\Controllers\Admin\LeaderboardController::class, 'index'])->name('leaderboard-member.index');
     Route::post('start-periode', [App\Http\Controllers\Admin\PeriodeController::class, 'store'])->name('periode.store');
     Route::put('stop-periode', [App\Http\Controllers\Admin\PeriodeController::class, 'stop'])->name('periode.stop');

@@ -82,10 +82,16 @@
             <div class="sidebar-heading">
                 Lainnya
             </div>
-            <li class="nav-item {{ request()->routeIs('admin.leaderboard-member.*') ? 'active' : '' }}">
+            <li class="nav-item {{ request()->routeIs('admin.informasi.*') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('admin.informasi.index') }}">
                     <i class="fas fa-fw fa-info"></i>
                     <span>Informasi</span>
+                </a>
+            </li>
+            <li class="nav-item {{ request()->routeIs('admin.gallery.*') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin.gallery.index') }}">
+                    <i class="fas fa-fw fa-file"></i>
+                    <span>Galeri</span>
                 </a>
             </li>
             <hr class="sidebar-divider d-none d-md-block">
