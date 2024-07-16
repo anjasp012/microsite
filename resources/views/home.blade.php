@@ -203,7 +203,7 @@
                                                 <tr>
                                                     <th class="bg-secondary text-center">{{ $no + 1 }}</th>
                                                     <th class="bg-secondary">
-                                                        {{ Str::limit('@' . $member->username, '5', '***') }}
+                                                        {{ Str::limit('@' . str_replace('@', '', $member->username), '5', '***') }}
                                                     </th>
                                                     <th class="bg-secondary text-center">
                                                         {{ $member->latestPost != null ? $member->latestPost->updated_at->format('d M') : '-' }}

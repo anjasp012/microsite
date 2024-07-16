@@ -29,7 +29,7 @@
                                     <img width="90" class="mb-3  border rounded" src="{{ $member->avatar }}"
                                         alt="{{ $member->name }}">
                                     <h5 class="font-weight-bold text-dark mb-1">
-                                        {{ Str::limit($member->username, 5) }}
+                                        {{ str_replace('@', '', Str::limit($member->username, 5)) }}
                                     </h5>
                                     <p class="m-0">
                                         {{ $member->name }}
