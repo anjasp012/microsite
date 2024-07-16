@@ -215,6 +215,18 @@
                                     </tbody>
                                 </table>
                             </div>
+                            <style>
+                                .table-responsive::-webkit-scrollbar {
+                                    display: none;
+                                }
+
+                                .table-responsive {
+                                    -ms-overflow-style: none;
+                                    /* IE and Edge */
+                                    scrollbar-width: none;
+                                    /* Firefox */
+                                }
+                            </style>
                         </div>
                     </div>
                     <div class="icon-white">
