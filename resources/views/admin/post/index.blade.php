@@ -40,7 +40,7 @@
                                             </td>
                                             <td>
                                                 <a class="btn btn-sm btn-success" target="_blank"
-                                                    href="{{ $post->instagram }}">Buka</a>
+                                                    href="https://www.instagram.com/{{ str_replace('@', '', $post->instagram) }}">Buka</a>
                                             </td>
                                             <td>
                                                 <a class="btn btn-sm btn-success" target="_blank"
