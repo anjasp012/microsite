@@ -245,12 +245,27 @@
         </div>
 
         <div class="owl-carousel py-2 py-md-4">
-            @foreach ($galleries as $gallery)
-                <div class="item"><img class="w-100" src="/storage/{{ $gallery->file }}"
-                        alt="{{ $gallery->file }}">
+            @for ($i = 1; $i < 10; $i++)
+                <div class="item"><img class="w-100 galeri" src="/images/galeri-{{ $i }}.jpg"
+                        alt="galeri-{{ $i }}">
                 </div>
-            @endforeach
+            @endfor
         </div>
+        <style>
+            .item .galeri {
+                height: 100px;
+                object-fit: cover;
+                background-repeat: no-repeat
+            }
+
+            @media (min-width: 768px) {
+                .item .galeri {
+                    height: 200px;
+                    object-fit: cover;
+                    background-repeat: no-repeat
+                }
+            }
+        </style>
         <div class="container">
             <p class="text-center text-light p-0 m-0">Starmoly.All rights reserved.</p>
         </div>
