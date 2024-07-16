@@ -35,7 +35,7 @@
                                         <tr>
                                             <td style="width: 1%" class="text-center">{{ $no + 1 }}</td>
                                             <td class="w-25">
-                                                <img class="w-100" src="{{ asset('storage/gallery/' . $item->file) }}"
+                                                <img class="w-100" src="{{ asset('storage/' . $item->file) }}"
                                                     alt="">
                                             </td>
                                             <td>

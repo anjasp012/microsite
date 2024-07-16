@@ -39,9 +39,10 @@ class GalleryController extends Controller
             'file' => 'required|file'
         ]);
 
-        $foto = "image-" . Str::random(10) . '.' . $request->file('file')->extension();
-        $request->file('file')->storeAs('gallery/', $foto);
-        $file = $foto;
+        $request->file('file')->storeAs('gallery', $request->file('file')->getClientOriginalName(), 'public');
+        $pathFile = "gallery/" . $request->file('file')->getClientOriginalName();
+
+        $file = $pathFile;
 
         Gallery::create([
             'file' => $file,
@@ -80,7 +81,7 @@ class GalleryController extends Controller
     public function destroy(string $id)
     {
         $gallery  = Gallery::findOrFail($id);
-        Storage::delete('gallery/' . $gallery->file);
+        Storage::delete($gallery->file);
         $gallery->delete();
         return back();
     }
