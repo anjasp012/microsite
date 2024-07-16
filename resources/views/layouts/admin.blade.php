@@ -88,12 +88,12 @@
                     <span>Informasi</span>
                 </a>
             </li>
-            <li class="nav-item {{ request()->routeIs('admin.gallery.*') ? 'active' : '' }}">
+            {{-- <li class="nav-item {{ request()->routeIs('admin.gallery.*') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('admin.gallery.index') }}">
                     <i class="fas fa-fw fa-file"></i>
                     <span>Galeri</span>
                 </a>
-            </li>
+            </li> --}}
             <hr class="sidebar-divider d-none d-md-block">
 
             <div class="text-center d-none d-md-inline">
