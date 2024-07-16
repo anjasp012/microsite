@@ -188,7 +188,7 @@
                                                     </th>
                                                     <th class="bg-warning">
                                                         <a class="w-100 text-decoration-none"
-                                                            href="{{ route('postingan-saya') }}">{{ '@' . $member->username }}</a>
+                                                            href="{{ route('postingan-saya') }}">{{ '@' . str_replace('@', '', $member->username) }}</a>
                                                     </th>
                                                     <th class="bg-warning text-center">
                                                         <a class="w-100 text-decoration-none"
