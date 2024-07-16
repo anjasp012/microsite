@@ -320,7 +320,7 @@
             $(".owl-carousel").owlCarousel({
                 loop: true,
                 margin: 10,
-                nav: true,
+                nav: false,
                 center: true,
                 responsive: {
                     0: {
