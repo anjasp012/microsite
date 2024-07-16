@@ -19,7 +19,7 @@ class GalleryController extends Controller
         $data = [
             'galleries' => Gallery::all(),
         ];
-        return view('admin.galley.index', $data);
+        return view('admin.gallery.index', $data);
     }
 
     /**
@@ -27,7 +27,7 @@ class GalleryController extends Controller
      */
     public function create()
     {
-        return view('admin.galley.create');
+        return view('admin.gallery.create');
     }
 
     /**
@@ -40,7 +40,7 @@ class GalleryController extends Controller
         ]);
 
         $foto = "image-" . Str::random(10) . '.' . $request->file('file')->extension();
-        $request->file('file')->storeAs('public/gallery/', $foto);
+        $request->file('file')->storeAs('gallery/', $foto);
         $file = $foto;
 
         Gallery::create([
@@ -80,7 +80,7 @@ class GalleryController extends Controller
     public function destroy(string $id)
     {
         $gallery  = Gallery::findOrFail($id);
-        Storage::delete('public/gallery/' . $gallery->file);
+        Storage::delete('gallery/' . $gallery->file);
         $gallery->delete();
         return back();
     }
