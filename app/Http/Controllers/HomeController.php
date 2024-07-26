@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\LogVisitor;
 use App\Models\Gallery;
 use App\Models\HistoriBulanan;
 use App\Models\Informasi;
@@ -10,11 +11,34 @@ use App\Models\Post;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Jenssegers\Agent\Agent;
+use Stevebauman\Location\Facades\Location;
 
 class HomeController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        $ipAddress = $request->ip();
+        $url = $request->fullUrl();
+
+        // Detect device and browser
+        $agent = new Agent();
+        $agent->setUserAgent($request->header('User-Agent'));
+        $device = $agent->device();
+        $browser = $agent->browser();
+
+        // Get country from IP address
+        $country = null;
+        try {
+            $position = Location::get($ipAddress);
+            $country = $position->countryName ?? null;
+        } catch (\Exception $e) {
+            // Handle exception
+        }
+
+        // Trigger LogVisitor event
+        event(new LogVisitor($ipAddress, $url, $country, $device, $browser));
+
         $data = [];
         if (auth()->check()) {
             if (auth()->user()->role == 'admin') {
